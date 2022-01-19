@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  bingoapp:
+    image: node:lts-gallium
+    volumes:
+      - "/home/leohome81/bingo-project/bingoapp:/home/node"
+    environment:
+      - "TZ=Asia/Taipei"
+    command: sh -c "tail -f /dev/null"
+    container_name: "bingoapp"
+    user: root
+    networks:
+      - bingoapp-services
+networks:
+  bingoapp-services:
+    driver: bridge
+    name: webteam-bridge
+
